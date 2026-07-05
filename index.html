@@ -1,33 +1,98 @@
-<!DOCTYPE html>                      <!-- Declares this is an HTML5 document -->
-<html lang="en">                     <!-- Root element, lang="en" specifies English language -->
-<head>                               <!-- Contains metadata about the page (not visible) -->
-  <meta charset="UTF-8">             <!-- Sets character encoding for special characters -->
-  <title>Module 1</title>            <!-- Title that appears in browser tab -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">  <!-- Load Google Fonts -->
-  <link rel="stylesheet" href="style.css">  <!-- Links to our CSS file for styling -->
-</head>
-<body>                               <!-- Contains all visible content on the page -->
-  <header>                           <!-- Header section for navigation/branding -->
-    <div class="left">Columbia GSAPP</div>  <!-- Left side of header with institution name -->
-    <div class="center">             <!-- Center section of header -->
-      Computational Design Practices<br>    <!-- Main title with line break -->
-      <span>Project Archive</span>   <!-- Subtitle in smaller text -->
-    </div>
-    <div class="right"><a href="#">About</a></div>  <!-- Right side with navigation link -->
-  </header>
+<!DOCTYPE html>
+<html lang="en">
 
-  <main>                             <!-- Main content area of the page -->
-    <div class="project-meta">2025</div>     <!-- Project year/date -->
-    <div class="project-title">Project Title</div>  <!-- Main project title -->
-    <div class="project-subtitle">Student Name</div>  <!-- Student name as subtitle -->
-    
-    <!-- Content sections -->
-    <div class="section-title">Interactive Demo</div>  <!-- Section heading -->
-    <p>Click the button below to see JavaScript in action:</p>  <!-- Instructions for user -->
-    <button id="demoButton">Click Me!</button>  <!-- Interactive button with unique ID -->
-    <div id="messageDisplay"></div>  <!-- Empty container for JavaScript to fill with messages -->
-  </main>
-  
-  <script src="script.js"></script>  <!-- Links to our JavaScript file for interactivity -->
+<head>
+
+<meta charset="UTF-8">
+
+<title>Module 1</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="left">
+COLUMBIA GSAPP
+</div>
+
+<div class="center">
+COMPUTATIONAL DESIGN PRACTICES
+<br>
+<span>MY FIRST REPO</span>
+</div>
+
+<div class="right">
+<a href="#">ABOUT</a>
+</div>
+
+</header>
+
+
+<main>
+
+<div class="left-column">
+
+<div class="project-meta">
+2026
+</div>
+
+<div class="project-title">
+PROJECT TITLE
+</div>
+
+<div class="project-subtitle">
+Aqila Bakri
+</div>
+
+<div class="card">
+
+<div class="section-title">
+Interactive Demo
+</div>
+
+<p>
+
+Click the button below to launch the mission.
+
+</p>
+
+<button id="demoButton">
+Launch Mission
+</button>
+
+<div id="messageDisplay"></div>
+
+</div>
+
+</div>
+
+
+<div class="right-column">
+
+<div class="window">
+
+<div class="planet"></div>
+
+<div class="orbit orbit1"></div>
+
+<div class="orbit orbit2"></div>
+
+<div class="star"></div>
+
+</div>
+
+</div>
+
+</main>
+
+<script src="script.js"></script>
+
 </body>
+
 </html>
