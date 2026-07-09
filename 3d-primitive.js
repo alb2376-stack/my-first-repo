@@ -35,8 +35,7 @@
   new THREE.SphereGeometry(1.2, 32, 32),
   new THREE.MeshPhongMaterial({
     color: 0xe91e63,
-    transparent: true,
-    opacity: 0.5
+    
   })
 );
 sphere.position.set(0, 1.2, 0);
@@ -48,7 +47,7 @@ const cylinder = new THREE.Mesh(
   new THREE.MeshPhongMaterial({
     color: 0xff5e00,
     transparent: true,
-    opacity: 0.5
+    opacity: 0.7
   })
 );
 cylinder.position.set(5, 1, 0);
@@ -60,7 +59,7 @@ const cone = new THREE.Mesh(
   new THREE.MeshPhongMaterial({
     color: 0xe91e63,
     transparent: true,
-    opacity: 0.5
+    opacity: 0.8
   })
 );
 cone.position.set(2.5, 1, -4);
