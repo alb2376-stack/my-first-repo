@@ -26,21 +26,21 @@
   // Box
   const box = new THREE.Mesh(
     new THREE.BoxGeometry(2, 2, 2),
-    new THREE.MeshPhongMaterial({ color: 0x3264a8 })
+    new THREE.MeshPhongMaterial({ color: 0xff5e00 })
   );
   box.position.set(-5, 1, 0);
   scene.add(box);
   // Sphere
   const sphere = new THREE.Mesh(
     new THREE.SphereGeometry(1.2, 32, 32),
-    new THREE.MeshPhongMaterial({ color: 0xffa500 })
+    new THREE.MeshPhongMaterial({ color: 0xff5e00 })
   );
   sphere.position.set(0, 1.2, 0);
   scene.add(sphere);
   // Cylinder
   const cylinder = new THREE.Mesh(
     new THREE.CylinderGeometry(1, 1, 2, 32),
-    new THREE.MeshPhongMaterial({ color: 0x4caf50 })
+    new THREE.MeshPhongMaterial({ color: 0xff5e00 })
   );
   cylinder.position.set(5, 1, 0);
   scene.add(cylinder);
