@@ -26,28 +26,28 @@
   // Box
   const box = new THREE.Mesh(
     new THREE.BoxGeometry(2, 2, 2),
-    new THREE.MeshPhongMaterial({ color: white })
+    new THREE.MeshPhongMaterial({ color: 0xff5e00, transparent: true, opacity:0.3 })
   );
   box.position.set(-5, 1, 0);
   scene.add(box);
   // Sphere
   const sphere = new THREE.Mesh(
     new THREE.SphereGeometry(1.2, 32, 32),
-    new THREE.MeshPhongMaterial({ color: white })
+    new THREE.MeshPhongMaterial({ color: 0xe91e63, transparent: true, opacity:0.7})
   );
   sphere.position.set(0, 1.2, 0);
   scene.add(sphere);
   // Cylinder
   const cylinder = new THREE.Mesh(
     new THREE.CylinderGeometry(1, 1, 2, 32),
-    new THREE.MeshPhongMaterial({ color: 0xff5e00 })
+    new THREE.MeshPhongMaterial({ color: 0xff5e00, , transparent: true, opacity:0.5}{ })
   );
   cylinder.position.set(5, 1, 0);
   scene.add(cylinder);
   // Cone
   const cone = new THREE.Mesh(
     new THREE.ConeGeometry(1, 2, 32),
-    new THREE.MeshPhongMaterial({ color: 0xe91e63 })
+    new THREE.MeshPhongMaterial({ color: 0xe91e63, , transparent: true, opacity:0.8})
   );
   cone.position.set(2.5, 1, -4);
   scene.add(cone);
