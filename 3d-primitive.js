@@ -1,32 +1,75 @@
-const x = 0, y = 0;
+// spatial-canvas-threejs.js
+// Three.js scene: grid, primitives, and orbit controls
 
-const heartShape = new THREE.Shape();
+(function() {
+  // Scene, camera, renderer setup
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, 800 / 400, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(800, 400);
+  renderer.setClearColor(0xf0f0f0); // Light grey background
 
-heartShape.moveTo(x + 5, y + 5);
-heartShape.bezierCurveTo(x + 5, y + 5, x + 4, y, x, y);
-heartShape.bezierCurveTo(x - 6, y, x - 6, y + 7, x - 6, y + 7);
-heartShape.bezierCurveTo(x - 6, y + 11, x - 3, y + 15.4, x + 5, y + 19);
-heartShape.bezierCurveTo(x + 12, y + 15.4, x + 16, y + 11, x + 16, y + 7);
-heartShape.bezierCurveTo(x + 16, y + 7, x + 16, y, x + 10, y);
-heartShape.bezierCurveTo(x + 7, y, x + 5, y + 5, x + 5, y + 5);
+  document.getElementById('threejs-container-1').appendChild(renderer.domElement);
 
-const heartGeometry = new THREE.ExtrudeGeometry(heartShape, {
-  depth: 4,
-  bevelEnabled: true,
-  bevelSegments: 6,
-  steps: 2,
-  bevelSize: 0.8,
-  bevelThickness: 0.8
-});
+  // Add grid helper
+  const grid = new THREE.GridHelper(16, 32, 0xcccccc, 0xcccccc);
+  scene.add(grid);
 
-const heartMaterial = new THREE.MeshPhongMaterial({
-  color: 0xff69b4
-});
+  // Add ambient and directional light
+  const ambient = new THREE.AmbientLight(0xffffff, 0.7);
+  scene.add(ambient);
+  const dirLight = new THREE.DirectionalLight(0xffffff, 0.7);
+  dirLight.position.set(5, 10, 7);
+  scene.add(dirLight);
 
-const heart = new THREE.Mesh(heartGeometry, heartMaterial);
+  // Add 3D primitives
+  // Box
+  const box = new THREE.Mesh(
+    new THREE.BoxGeometry(2, 2, 2),
+    new THREE.MeshPhongMaterial({ color: white })
+  );
+  box.position.set(-5, 1, 0);
+  scene.add(box);
+  // Sphere
+  const sphere = new THREE.Mesh(
+    new THREE.SphereGeometry(1.2, 32, 32),
+    new THREE.MeshPhongMaterial({ color: white })
+  );
+  sphere.position.set(0, 1.2, 0);
+  scene.add(sphere);
+  // Cylinder
+  const cylinder = new THREE.Mesh(
+    new THREE.CylinderGeometry(1, 1, 2, 32),
+    new THREE.MeshPhongMaterial({ color: 0xff5e00 })
+  );
+  cylinder.position.set(5, 1, 0);
+  scene.add(cylinder);
+  // Cone
+  const cone = new THREE.Mesh(
+    new THREE.ConeGeometry(1, 2, 32),
+    new THREE.MeshPhongMaterial({ color: 0xe91e63 })
+  );
+  cone.position.set(2.5, 1, -4);
+  scene.add(cone);
 
-heart.scale.set(0.12, 0.12, 0.12);
-heart.rotation.x = -Math.PI / 2;
-heart.position.set(0, 0.5, 0);
+  // Camera position
+  camera.position.set(8, 8, 8);
+  camera.lookAt(0, 0, 0);
 
-scene.add(heart);
+  // OrbitControls
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.1;
+  controls.screenSpacePanning = false;
+  controls.minDistance = 4;
+  controls.maxDistance = 40;
+  controls.target.set(0, 1, 0);
+
+  // Animation loop
+  function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  animate();
+})(); 
