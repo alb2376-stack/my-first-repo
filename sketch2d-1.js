@@ -1,50 +1,36 @@
-// 2D Drawing Sketch - using p5.js instance mode
-var sketch1 = function(p) {
-  // All variables are scoped to this instance
-  var canvasWidth = 800;
-  var canvasHeight = 400;
-  var gridSpacing = 40;
-  var canvas;
+function setup() {
+  // Creates a canvas 800 pixels wide
+  // and 800 pixels high.
+  createCanvas(800, 800);
+}
+function draw() {
+  //orange background
+  background(245,232,170);
 
-  p.setup = function() {
-    canvas = p.createCanvas(canvasWidth, canvasHeight);
-    canvas.parent('canvas-container-1');
-  };
+  fill("white")
+  stroke("white")
+  circle(0,0,400)
+  circle(0,400,400)
+  circle(0,800,400)
+  circle(400,0,400)
+  circle(400,400,400)
+  circle(400,800,400)
+  circle(800,800,400)
+  circle(800,400,400)
+  circle(800,0,400)
 
-  p.draw = function() {
-    p.background(250);
-    drawGrid();
-    drawPrimitives();
-  };
+  fill(245,163,62)
+  stroke(245,163,62)
+  circle(0,0,300)
+  circle(0,400,300)
+  circle(0,800,300)
+  circle(400,0,300)
+  circle(400,400,300)
+  circle(400,800,300)
+  circle(800,800,300)
+  circle(800,400,300)
+  circle(800,0,300)
 
-  function drawGrid() {
-    p.stroke(200);
-    p.strokeWeight(1);
-    for (var x = 0; x <= p.width; x += gridSpacing) {
-      p.line(x, 0, x, p.height);
-    }
-    for (var y = 0; y <= p.height; y += gridSpacing) {
-      p.line(0, y, p.width, y);
-    }
-  }
-
-  function drawPrimitives() {
-    // Rectangle
-    p.fill(255, 100, 100);
-    p.rect(120, 80, 100, 60);
-    // Ellipse
-    p.fill(100, 180, 255);
-    p.ellipse(350, 200, 90, 90);
-    // Line
-    p.stroke(80, 200, 120);
-    p.strokeWeight(4);
-    p.line(500, 100, 700, 300);
-    // Triangle
-    p.noStroke();
-    p.fill(255, 220, 80);
-    p.triangle(600, 80, 750, 60, 700, 200);
-  }
-};
-
-// Create the instance
-var myp5_1 = new p5(sketch1, 'canvas-container-1'); 
+  
+  
+}
