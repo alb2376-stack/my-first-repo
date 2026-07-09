@@ -3,7 +3,7 @@ var sketch2 = function(p) {
 
   // All variables are scoped to this instance
   var trails = [];
-  var canvasWidth = 400;
+  var canvasWidth = 800;
   var canvasHeight = 400;
   var topColor;
   var bottomColor;
