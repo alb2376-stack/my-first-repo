@@ -1,39 +1,32 @@
- // Create heart shape
-  function createHeart(x, z, scale = 0.08) {
-    const heartShape = new THREE.Shape();
+const x = 0, y = 0;
 
-    heartShape.moveTo(0, 0);
-    heartShape.bezierCurveTo(0, 0, -5, -5, -10, 0);
-    heartShape.bezierCurveTo(-20, 10, -20, 25, -20, 25);
-    heartShape.bezierCurveTo(-20, 40, -5, 55, 0, 60);
-    heartShape.bezierCurveTo(5, 55, 20, 40, 20, 25);
-    heartShape.bezierCurveTo(20, 25, 20, 10, 10, 0);
-    heartShape.bezierCurveTo(5, -5, 0, 0, 0, 0);
+const heartShape = new THREE.Shape();
 
-    const geometry = new THREE.ExtrudeGeometry(heartShape, {
-      depth: 6,
-      bevelEnabled: true,
-      bevelSegments: 3,
-      steps: 2,
-      bevelSize: 1,
-      bevelThickness: 1
-    });
+heartShape.moveTo(x + 5, y + 5);
+heartShape.bezierCurveTo(x + 5, y + 5, x + 4, y, x, y);
+heartShape.bezierCurveTo(x - 6, y, x - 6, y + 7, x - 6, y + 7);
+heartShape.bezierCurveTo(x - 6, y + 11, x - 3, y + 15.4, x + 5, y + 19);
+heartShape.bezierCurveTo(x + 12, y + 15.4, x + 16, y + 11, x + 16, y + 7);
+heartShape.bezierCurveTo(x + 16, y + 7, x + 16, y, x + 10, y);
+heartShape.bezierCurveTo(x + 7, y, x + 5, y + 5, x + 5, y + 5);
 
-    const material = new THREE.MeshPhongMaterial({
-      color: 0xff69b4, // pink
-      shininess: 100
-    });
+const heartGeometry = new THREE.ExtrudeGeometry(heartShape, {
+  depth: 4,
+  bevelEnabled: true,
+  bevelSegments: 6,
+  steps: 2,
+  bevelSize: 0.8,
+  bevelThickness: 0.8
+});
 
-    const heart = new THREE.Mesh(geometry, material);
+const heartMaterial = new THREE.MeshPhongMaterial({
+  color: 0xff69b4
+});
 
-    heart.scale.set(scale, scale, scale);
-    heart.rotation.x = -Math.PI / 2;
-    heart.position.set(x, 0.5, z);
+const heart = new THREE.Mesh(heartGeometry, heartMaterial);
 
-    scene.add(heart);
-  }
+heart.scale.set(0.12, 0.12, 0.12);
+heart.rotation.x = -Math.PI / 2;
+heart.position.set(0, 0.5, 0);
 
-  // Three hearts
-  createHeart(-4, 0);
-  createHeart(0, 0);
-  createHeart(4, 0);
+scene.add(heart);
