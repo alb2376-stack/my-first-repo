@@ -2,8 +2,8 @@
 var sketch1 = function(p) {
 
   // All variables are scoped to this instance
-  var canvasWidth = 800;
-  var canvasHeight = 800;
+  var canvasWidth = 400;
+  var canvasHeight = 400;
   var canvas;
 
   p.setup = function() {

@@ -3,12 +3,14 @@ var sketch2 = function(p) {
 
   // All variables are scoped to this instance
   var trails = [];
+  var canvasWidth = 400;
+  var canvasHeight = 400;
   var topColor;
   var bottomColor;
 
   p.setup = function() {
     // Create the canvas and attach it to the container
-    var canvas = p.createCanvas(400, 400);
+    var canvas = p.createCanvas(canvasWidth, canvasHeight);
     canvas.parent('canvas-container-2');
 
     p.noStroke();
