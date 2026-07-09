@@ -8,7 +8,7 @@ var sketch2 = function(p) {
 
   p.setup = function() {
     // Create the canvas and attach it to the container
-    var canvas = p.createCanvas(800, 800);
+    var canvas = p.createCanvas(400, 400);
     canvas.parent('canvas-container-2');
 
     p.noStroke();
