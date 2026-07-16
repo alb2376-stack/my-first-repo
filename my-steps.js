@@ -78,15 +78,14 @@
         .attr("dy", "0.31em") // Adjust vertical alignment
         .text(formatDay); // Set text to day abbreviation
 
-    // Add calendar cells (rectangles for each trading day)
+    // Add calendar cells (circles for each trading day)
     year.append("g") // Add group for calendar cells
       .selectAll() // Select all elements (initially empty)
       .data(([, values]) => values.filter(d => ![0, 6].includes(d.Date.getUTCDay()))) // Filter to exclude weekends (0=Sunday, 6=Saturday)
-      .join("rect") // Create/update rectangle elements
-        .attr("width", cellSize - 1) // Set rectangle width (slightly smaller than cell for spacing)
-        .attr("height", cellSize - 1) // Set rectangle height
-        .attr("x", d => timeWeek.count(d3.utcYear(d.Date), d.Date) * cellSize + 0.5) // Position horizontally by week number
-        .attr("y", d => countDay(d.Date.getUTCDay()) * cellSize + 0.5) // Position vertically by day of week
+      .join("circle") // Create/update circle elements
+        .attr("r", (cellSize - 1) / 2) // Set circle radius (slightly smaller than cell for spacing)
+        .attr("cx", d => timeWeek.count(d3.utcYear(d.Date), d.Date) * cellSize + 0.5 + (cellSize - 1) / 2) // Position horizontally by week number
+        .attr("cy", d => countDay(d.Date.getUTCDay()) * cellSize + 0.5 + (cellSize - 1) / 2) // Position vertically by day of week
         .attr("fill", d => color(d.Value)) // Color based on direct value
       .append("title") // Add tooltip
         .text(d => `${formatDate(d.Date)}
