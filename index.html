@@ -1,144 +1,112 @@
 <!DOCTYPE html>
-<!-- This tells the browser this is an HTML5 document - always include this at the top -->
 <html lang="en">
-<!-- The html tag is the root element that contains everything on the page -->
-<!-- lang="en" tells the browser this page is in English -->
-
 <head>
-  <!-- The head section contains information about the page, not visible content -->
-
-
-  <!-- ------------------------------------------------------------ -->
-  <!-- Load p5.js library from CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <!-- This loads the p5.js library which provides functions for creating graphics and animations -->
-  <!-- ------------------------------------------------------------ -->
-
-  
   <meta charset="UTF-8">
-  <!-- This sets the character encoding to UTF-8, which supports special characters and emojis -->
-  
-  <title>Module 1</title>
-  <!-- This is the title that appears in the browser tab and bookmarks -->
-  
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <!-- This loads the Roboto font from Google Fonts for use on our page -->
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spatial Canvases — Module 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- This links our CSS file to style the page - the href points to our style.css file -->
 </head>
-
 <body>
-  <!-- The body contains all the visible content that users will see on the page -->
-  
-  <header>
-    <!-- The header is typically used for navigation and site branding -->
-    
+
+  <header class="site-header">
     <div class="left">Columbia GSAPP</div>
-    <!-- This div creates a container for the left side of the header -->
-    <!-- class="left" allows us to style this specific div with CSS -->
-    
     <div class="center">
-      <!-- This div creates a container for the center of the header -->
-      Computational Design Workflows<br>
-      <!-- This is the main text in the center -->
-      <!-- <br> creates a line break, moving the next text to a new line -->
+      Computational Design Workflows
       <span>Exploration of Digital Objects</span>
-      <!-- span is an inline element that groups text without creating a new line -->
-      <!-- class="center" allows us to style this span differently -->
     </div>
-    
-    <div class="right">About</div>
-    <!-- This div creates a container for the right side of the header -->
-    <!-- <a href="#">About</a> creates a clickable link (currently goes nowhere with #) -->
+    <div class="right"><a href="#">About</a></div>
+  </header>
+
+  <nav class="site-tabs">
+    <a href="index.html" class="tab-link active" style="--tab-color: var(--pink);">
+      <span class="tab-circle">&#8962;</span>
+      <span class="tab-label">Home</span>
+    </a>
+    <a href="2d-primitives.html" class="tab-link" style="--tab-color: var(--orange);">
+      <span class="tab-circle">01</span>
+      <span class="tab-label">2D Primitives</span>
+    </a>
+    <a href="2d-interactive.html" class="tab-link" style="--tab-color: var(--coral);">
+      <span class="tab-circle">02</span>
+      <span class="tab-label">2D Interactive</span>
+    </a>
+    <a href="3d-geometries.html" class="tab-link" style="--tab-color: var(--red);">
+      <span class="tab-circle">03</span>
+      <span class="tab-label">3D Geometries</span>
+    </a>
+    <a href="3d-atmospheric.html" class="tab-link" style="--tab-color: var(--pink-light);">
+      <span class="tab-circle">04</span>
+      <span class="tab-label">3D Atmospheric</span>
+    </a>
+    <a href="d3-exploration.html" class="tab-link" style="--tab-color: var(--peach); --tab-text: var(--ink);">
+      <span class="tab-circle">05</span>
+      <span class="tab-label">D3 Exploration</span>
+    </a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="project-meta">2026</span>
+      <h1 class="project-title">Spatial Canvases</h1>
+      <p class="project-subtitle">Aqila Bakri</p>
+      <p class="advisor">Catherine Griffiths</p>
+      <p class="intro">2D and 3D Geometries, Color, and Design Explorations.</p>
+    </div>
   </header>
 
   <main>
-    <!-- The main tag contains the primary content of the page -->
-    
-    <div class="project-meta">2026</div>
-    <!-- This div displays the year/project metadata -->
-    <!-- class="project-meta" allows us to style this with CSS -->
-    
-    <div class="project-title">Spatial Canvases</div>
-    <!-- This div displays the main project title -->
-    <!-- class="project-title" allows us to style this with CSS -->
-    
-    <div class="project-subtitle">Aqila Bakri</div>
-    <!-- This div displays the student's name as a subtitle -->
-    <!-- class="project-subtitle" allows us to style this with CSS -->
-    
-    <div class="advisor">Catherine Griffiths</div>
-    <!-- This div displays advisor information -->
-    <!-- <br> creates a line break -->
-    <!-- <strong> makes the text bold for emphasis -->
-    
-    <div class="section-title">Digital Object 1: Spatial Canvases</div>
-    <!-- Section heading for the p5.js canvas demonstration -->
-    
-    <p>2D and 3D Geometries, Color, and Design Explorations. </p>
-    <!-- Introduction to the first section -->
+    <h2 class="section-title" style="text-align:center; margin-bottom: 6px;">Digital Object 1: Spatial Canvases</h2>
+    <p class="description" style="max-width: 620px; margin: 0 auto 36px; text-align:center;">Five explorations spanning generative 2D primitives, interactive drawing, 3D geometry, atmosphere, and data visualization. Select a tab above or a card below to open each piece.</p>
 
+    <div class="tab-grid">
 
-    <!-- ------------------------------------------------------------ -->
+      <a href="2d-primitives.html" class="tab-card" style="--accent: var(--orange);">
+        <span class="card-index">01</span>
+        <span class="card-tag">2D</span>
+        <h3>2D Drawing with Primitives</h3>
+        <p>Using basic shapes to create patterns.</p>
+        <span class="card-cta">View sketch &#8594;</span>
+      </a>
 
-    <!-- ADD A NEW 'CANVAS CONTAINER' FOR EACH NEW P5.JS SKETCH (THE ORDER IS DEFINED BY THE CONTAINER NUMBER BELOW + THE MOST RECENT SKETCH SHOULD BE AT THE TOP) -->
+      <a href="2d-interactive.html" class="tab-card" style="--accent: var(--coral);">
+        <span class="card-index">02</span>
+        <span class="card-tag">2D</span>
+        <h3>2D Interactive Mouse Animation</h3>
+        <p>Using mouse movements to create basic interactive design.</p>
+        <span class="card-cta">View sketch &#8594;</span>
+      </a>
 
-    <!-- Section for first p5.js sketch (2d-drawing.js) -->
-    <div class="section-title">2D Drawing with Primitives</div>
-    <p>Using basing shapes to create patterns. </p>
-    <div id="canvas-container-1"></div>
-    <div class="section-title">2D Interactive Mouse Animation</div>
-    <p>Using mouse movements to create basic interatctive design. </p>
-    <div id="canvas-container-2"></div>
+      <a href="3d-geometries.html" class="tab-card" style="--accent: var(--pink);">
+        <span class="card-index">03</span>
+        <span class="card-tag">3D</span>
+        <h3>3D Geometries</h3>
+        <p>Colors, shapes, opacities!</p>
+        <span class="card-cta">View sketch &#8594;</span>
+      </a>
 
-    <!-- Section for third p5.js sketch (zoom-pan.js) --> 
-    <div class="section-title">3D Geometries</div>
-    <p>Colors, Shapes, Opacities!</p>
-    
-    <!-- Canvas container for third p5.js sketch (zoom-pan.js) --> 
-    <div id="threejs-container-1"></div>
-    <div class="section-title">3D Drawing - Atmospheric Exploration</div>
-    <p>Atmospheric Experiment!</p>
-    
-    <!-- Canvas container for third p5.js sketch (zoom-pan.js) --> 
-    <div id="threejs-container-2"></div>
+      <a href="3d-atmospheric.html" class="tab-card" style="--accent: var(--pink-light);">
+        <span class="card-index">04</span>
+        <span class="card-tag">3D</span>
+        <h3>3D Drawing — Atmospheric Exploration</h3>
+        <p>Atmospheric experiment!</p>
+        <span class="card-cta">View sketch &#8594;</span>
+      </a>
 
-    <div class="section-title">D3 Exploration</div>
-    <p>Graphing Steps</p>
-    
-    <!-- Canvas container for third p5.js sketch (zoom-pan.js) --> 
-    <div id="d3-container-4"></div>
+      <a href="d3-exploration.html" class="tab-card" style="--accent: var(--red);">
+        <span class="card-index">05</span>
+        <span class="card-tag">Data</span>
+        <h3>D3 Exploration</h3>
+        <p>Graphing steps.</p>
+        <span class="card-cta">View sketch &#8594;</span>
+      </a>
 
-    
-
-    
-
-    
- 
-    <!-- ------------------------------------------------------------ -->
-    
+    </div>
   </main>
-  <!-- End of main content area -->
-  
 
-  <!-- ------------------------------------------------------------ -->
-
-  <!-- LOAD EACH NEW P5.JS SCRIPT HERE -->
-
-  <script src="sketch-2d-1.js"></script>
-  <script src="sketch-2d-2.js"></script>
-  <script src="3d-primitive.js"></script>
-  <script src="atmospheric-geometry.js"></script>
-  <script src="my-steps.js"></script>
-
-  <!-- ------------------------------------------------------------ -->
-
+  <footer class="site-footer">
+    <p>Computational Design Workflows — <strong>Aqila Bakri</strong>, Columbia GSAPP</p>
+  </footer>
 
 </body>
-<!-- End of body - all visible content goes above this line -->
 </html>
-<!-- End of HTML document -->
