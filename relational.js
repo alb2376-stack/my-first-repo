@@ -1,4 +1,4 @@
-// graph-simple-01.js - Simple Force-Directed Graph with Scoped Variables
+
 // This script creates a simple force-directed graph using D3.js
 
 var graphSketch1 = function() {
@@ -27,7 +27,7 @@ var graphSketch1 = function() {
     .append('svg')
     .attr('width', width)
     .attr('height', height)
-    .style('background', '#e75e97');
+    .style('background', '#f0f0f0');
 
   // Create simulation
   const simulation = d3.forceSimulation(nodes)
