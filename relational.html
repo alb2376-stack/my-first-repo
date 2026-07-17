@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3D Drawing — Atmospheric Exploration — Spatial Canvases</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <title>D3 Exploration — Spatial Canvases</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -37,7 +36,7 @@
       <span class="tab-circle">03</span>
       <span class="tab-label">3D Geometries</span>
     </a>
-    <a href="3d-atmospheric.html" class="tab-link active" style="--tab-color: var(--pink-light);">
+    <a href="3d-atmospheric.html" class="tab-link" style="--tab-color: var(--pink-light);">
       <span class="tab-circle">04</span>
       <span class="tab-label">3D Atmospheric</span>
     </a>
@@ -45,7 +44,7 @@
       <span class="tab-circle">05</span>
       <span class="tab-label">D3 Exploration</span>
     </a>
-    <a href="relational.html" class="tab-link" style="--tab-color: var(--light orange); --tab-text: var(--ink);">
+    <a href="relational.html" class="tab-link active" style="--tab-color: var(--light orange); --tab-text: var(--ink);">
       <span class="tab-circle">06</span>
       <span class="tab-label">Relational Structures</span>
     </a>
@@ -54,12 +53,12 @@
   <main>
     <a href="index.html" class="back-link">&#8592; Back to all</a>
 
-    <p class="section-eyebrow">04 of 06</p>
-    <h1 class="section-title">3D Drawing — Atmospheric Exploration</h1>
-    <p class="description">Atmospheric experiment!</p>
+    <p class="section-eyebrow">06 of 06</p>
+    <h1 class="section-title">Relational Structures</h1>
+    <p class="description">Ontological relationships.</p>
 
     <div class="canvas-frame">
-      <div id="threejs-container-2"></div>
+      <div id="d3-container-4"></div>
     </div>
   </main>
 
@@ -67,7 +66,7 @@
     <p>Computational Design Workflows — <strong>Aqila Bakri</strong>, Columbia GSAPP</p>
   </footer>
 
-  <script src="atmospheric-geometry.js"></script>
+  <script src="my-steps.js"></script>
 
 </body>
 </html>
