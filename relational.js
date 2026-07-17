@@ -27,7 +27,7 @@ var graphSketch1 = function() {
     .append('svg')
     .attr('width', width)
     .attr('height', height)
-    .style('background', '#f0f0f0');
+    .style('background', '#e75e97');
 
   // Create simulation
   const simulation = d3.forceSimulation(nodes)
