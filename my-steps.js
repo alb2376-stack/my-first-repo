@@ -13,9 +13,18 @@
   
   // Define formatting functions for the axes and tooltips
   const formatValue = d3.format("+.0f"); // Format values as integers with + sign
+  const formatSteps = d3.format(","); // Format step counts with thousands separators
   const formatDate = d3.utcFormat("%x"); // Format dates in local format
+  const formatTooltipDate = d3.utcFormat("%B %-d, %Y"); // Format dates for the hover tooltip
   const formatDay = i => "SMTWTFS"[i]; // Convert day index (0-6) to day abbreviation
   const formatMonth = d3.utcFormat("%b"); // Format month names as abbreviated text
+
+  // Circle sizing for calendar cells
+  const baseRadius = (cellSize - 1) / 2; // Default circle radius
+  const hoverRadius = baseRadius + 6; // Expanded radius shown on hover
+
+  // Single shared tooltip element, reused for every circle
+  const tooltip = d3.select("body").append("div").attr("class", "step-tooltip");
 
   // Helpers to compute a day's position in the week
   const timeWeek = d3.utcMonday; // Use Monday as the start of the week
@@ -83,13 +92,38 @@
       .selectAll() // Select all elements (initially empty)
       .data(([, values]) => values.filter(d => ![0, 6].includes(d.Date.getUTCDay()))) // Filter to exclude weekends (0=Sunday, 6=Saturday)
       .join("circle") // Create/update circle elements
-        .attr("r", (cellSize - 1) / 2) // Set circle radius (slightly smaller than cell for spacing)
-        .attr("cx", d => timeWeek.count(d3.utcYear(d.Date), d.Date) * cellSize + 0.5 + (cellSize - 1) / 2) // Position horizontally by week number
-        .attr("cy", d => countDay(d.Date.getUTCDay()) * cellSize + 0.5 + (cellSize - 1) / 2) // Position vertically by day of week
+        .attr("class", "step-cell") // Class for cursor/transition styling
+        .attr("r", baseRadius) // Set circle radius (slightly smaller than cell for spacing)
+        .attr("cx", d => timeWeek.count(d3.utcYear(d.Date), d.Date) * cellSize + 0.5 + baseRadius) // Position horizontally by week number
+        .attr("cy", d => countDay(d.Date.getUTCDay()) * cellSize + 0.5 + baseRadius) // Position vertically by day of week
         .attr("fill", d => color(d.Value)) // Color based on direct value
-      .append("title") // Add tooltip
-        .text(d => `${formatDate(d.Date)}
-Value: ${formatValue(d.Value)}`); // Tooltip shows date and value
+      .on("mouseenter", function(event, d) { // Expand the circle and reveal the step count on hover
+        d3.select(this).raise() // Bring the hovered circle above its neighbors
+          .transition().duration(150)
+            .attr("r", hoverRadius)
+            .attr("stroke", "#2a1810")
+            .attr("stroke-width", 2);
+
+        tooltip
+          .html(`<strong>${formatSteps(d.Value)}</strong> steps<br>${formatTooltipDate(d.Date)}`)
+          .style("left", `${event.pageX + 14}px`)
+          .style("top", `${event.pageY - 34}px`)
+          .classed("is-visible", true);
+      })
+      .on("mousemove", function(event) { // Keep the tooltip glued to the cursor
+        tooltip
+          .style("left", `${event.pageX + 14}px`)
+          .style("top", `${event.pageY - 34}px`);
+      })
+      .on("mouseleave", function() { // Shrink the circle back down and hide the tooltip
+        d3.select(this)
+          .transition().duration(150)
+            .attr("r", baseRadius)
+            .attr("stroke", "none")
+            .attr("stroke-width", 0);
+
+        tooltip.classed("is-visible", false);
+      });
 
     // Add month separators and labels
     const month = year.append("g") // Add group for month elements
