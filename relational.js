@@ -27,7 +27,7 @@ var graphSketch1 = function() {
     .append('svg')
     .attr('width', width)
     .attr('height', height)
-    .style('background', '#f0f0f0');
+    .style('background', '#ffffff');
 
   // Create simulation
   const simulation = d3.forceSimulation(nodes)
@@ -50,8 +50,8 @@ var graphSketch1 = function() {
     .selectAll('circle')
     .data(nodes)
     .enter().append('circle')
-    .attr('r', 20)
-    .attr('fill', '#3264a8')
+    .attr('r', 30)
+    .attr('fill', '#ff8aec')
     .call(drag(simulation));
 
   // Draw labels
