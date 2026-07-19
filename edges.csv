@@ -1,0 +1,20 @@
+source,target,type
+E-Waste,Nonhazardous Waste,directional
+E-Waste,Reuse/Commodity,directional
+E-Waste,Hazardous Waste,directional
+Nonhazardous Waste,Landfill,directional
+Nonhazardous Waste,Incineration/WTE,directional
+Nonhazardous Waste,Export,directional
+Nonhazardous Waste,Recycle,directional
+Nonhazardous Waste,Reuse/Remanufacture/Refurbish/Repurpose,directional
+Reuse/Commodity,Landfill,directional
+Reuse/Commodity,Incineration/WTE,directional
+Reuse/Commodity,Export,directional
+Reuse/Commodity,Recycle,directional
+Reuse/Commodity,Reuse/Remanufacture/Refurbish/Repurpose,directional
+Hazardous Waste,Landfill,directional
+Hazardous Waste,Incineration/WTE,directional
+Hazardous Waste,Export,directional
+Hazardous Waste,Recycle,directional
+Recycle,Landfill,directional
+Reuse/Remanufacture/Refurbish/Repurpose,Waste,directional
