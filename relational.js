@@ -70,16 +70,22 @@ var graphSketch3 = function() {  // Define the main function that contains all g
       return tier;
     }
 
-    // Give each node a color along a warm gradient that matches the site's own
-    // orange-to-pink accent colors (see the tab circles and headings in style.css).
-    // Nodes are ordered by tier first, so the gradient moves from orange at the
-    // source to pink at the final sink, tracing the flow left to right.
-    const orderedByTier = [...nodeIds].sort((a, b) => tierOf(a) - tierOf(b));
-    const colorScale = d3.scaleSequential()
-      .domain([0, orderedByTier.length - 1])
-      .interpolator(d3.interpolateRgb('#fe9f5d', '#db2265'));  // --orange -> --pink
-    const colorById = new Map(orderedByTier.map((id, i) => [id, colorScale(i)]));
-    const color = id => colorById.get(id);
+    // Give each node a color along a warm orange-to-pink gradient (matches the
+    // site's own accent colors - see the tab circles and headings in style.css),
+    // keyed by the lowercase ids that actually come out of edges.csv.
+    const colorMap = {
+      'E-Waste': '#fe9f5d',
+      'Nonhazardous Waste': '#fa915e',
+      'Reuse/Commodity': '#f6835f',
+      'Hazardous Waste': '#f27560',
+      'Incineration/WTE': '#ee6761',
+      'Export': '#eb5a61',
+      'Recycle': '#e74c62',
+      'Reuse/Remanufacture/Refurbish/Repurpose': '#e33e63',
+      'Landfill': '#df3064',
+      'Waste': '#db2265'
+    };
+    const color = id => colorMap[id] || '#3264a8';
 
     function radiusOf(role) {
       if (role === 'source') return 28;
@@ -152,7 +158,7 @@ var graphSketch3 = function() {  // Define the main function that contains all g
       .attr('markerHeight', 5)  // Height of the arrow marker
       .append('path')  // Create the actual arrow shape using a path element
       .attr('d', 'M 0,-4 L 8,0 L 0,4')  // Path data: move to (0,-4), line to (8,0), line to (0,4) - creates a triangle
-      .attr('fill', '#5b7ba8');  // Fill color of the arrow (blue-gray, matches the flow lines)
+      .attr('fill', '#444444');  // Fill color of the arrow (dark grey, matches the flow lines)
 
     // ============================================================================
     // ZOOM BEHAVIOR SETUP
@@ -220,7 +226,7 @@ var graphSketch3 = function() {  // Define the main function that contains all g
 
     // Create the visual links (lines) between nodes
     const link = g.append('g')  // Create a group to hold all the link elements
-      .attr('stroke', '#5b7ba8')  // Set default stroke color for links
+      .attr('stroke', '#444444')  // Set default stroke color for links (dark grey)
       .attr('stroke-width', 1.5)  // Set uniform stroke width
       .selectAll('line')  // Select all line elements (none exist yet)
       .data(links)  // Bind our links data to the selection
