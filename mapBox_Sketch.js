@@ -30,7 +30,7 @@ var mapboxSketch03 = function() {
   // STEP 1: SET UP YOUR MAPBOX ACCESS TOKEN
   // ============================================================================
   // Using the same token as the previous examples for consistency
-  mapboxgl.accessToken = 'pk.eyJ1IjoiYXFpbGFiYWtyaSIsImEiOiJjbXJsNWYxNW8xdW1lMnpxMXp5bDdzeDZnIn0.1W8mrhaDlBf3gjTsuFhqzQ';// Replace with your own token <---------------------------------------------------------------------------------------------
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYXFpbGFiYWtyaSIsImEiOiJjbXJ3aXpkdmYwNzZrMnlwczZqdWRqczJuIn0.GZf73yeL-ckunt9DQ3ensA';// Replace with your own token <---------------------------------------------------------------------------------------------
 
   // ============================================================================
   // STEP 2: CREATE THE MAP OBJECT
