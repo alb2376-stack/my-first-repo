@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geospatial Structures — Spatial Canvases</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="https://www.arch.columbia.edu/"><div class="left">Columbia GSAPP</div></a>
+    <div class="center">
+      Computational Design Workflows
+      <span>Exploration of Digital Objects</span>
+    </div>
+    <div class="right"><a href="#">About</a></div>
+  </header>
+
+  <nav class="site-tabs">
+    <a href="index.html" class="tab-link" style="--tab-color: var(--pink);">
+      <span class="tab-circle">&#8962;</span>
+      <span class="tab-label">Home</span>
+    </a>
+    <a href="2d-primitives.html" class="tab-link" style="--tab-color: var(--orange);">
+      <span class="tab-circle">01</span>
+      <span class="tab-label">2D Primitives</span>
+    </a>
+    <a href="2d-interactive.html" class="tab-link" style="--tab-color: var(--coral);">
+      <span class="tab-circle">02</span>
+      <span class="tab-label">2D Interactive</span>
+    </a>
+    <a href="3d-geometries.html" class="tab-link" style="--tab-color: var(--red);">
+      <span class="tab-circle">03</span>
+      <span class="tab-label">3D Geometries</span>
+    </a>
+    <a href="3d-atmospheric.html" class="tab-link" style="--tab-color: var(--pink-light);">
+      <span class="tab-circle">04</span>
+      <span class="tab-label">3D Atmospheric</span>
+    </a>
+    <a href="d3-exploration.html" class="tab-link" style="--tab-color: var(--peach);">
+      <span class="tab-circle">05</span>
+      <span class="tab-label">D3 Exploration</span>
+    </a>
+    <a href="relational.html" class="tab-link" style="--tab-color: var(--light-orange);">
+      <span class="tab-circle">06</span>
+      <span class="tab-label">Relational Structures</span>
+    </a>
+    <a href="geospatial.html" class="tab-link active" style="--tab-color: var(--pink);">
+      <span class="tab-circle">07</span>
+      <span class="tab-label">Geospatial Structures</span>
+    </a>
+  </nav>
+
+  <main>
+    <a href="index.html" class="back-link">&#8592; Back to all</a>
+
+    <p class="section-eyebrow">07 of 07</p>
+    <h1 class="section-title">Geospatial Structures</h1>
+    <p class="description">Mapping location-based data.</p>
+
+    <div class="canvas-frame">
+      <div class="canvas-frame">
+        <div id="mapbox-container-3" style="width: 100%; height: 700px; margin: 0 auto;"></div>
+        <p class="caption">Mapping Active Sidewalk Sheds in NYC.</p>
+    </div>
+    </div>
+  </main>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+  <script src="mapBox_Sketch.js"></script>
+
+  <footer class="site-footer">
+    <p>Computational Design Workflows — <strong>Aqila Bakri</strong>, Columbia GSAPP</p>
+  </footer>
+
+</body>
+</html>
+
