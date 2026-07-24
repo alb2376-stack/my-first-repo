@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Geospatial Structures — Spatial Canvases</title>
+  <title>Engagement Components</title>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
 </head>
 <body>
 
@@ -51,9 +53,9 @@
       <span class="tab-circle">07</span>
       <span class="tab-label">Geospatial Structures</span>
     </a>
-    <a href="geospatial.html" class="tab-link active" style="--tab-color: var(--coral);">
+    <a href="engagement.html" class="tab-link active" style="--tab-color: var(--coral);">
       <span class="tab-circle">08</span>
-      <span class="tab-label">Geospatial Structures</span>
+      <span class="tab-label">Engagement Components</span>
     </a>
     
   </nav>
@@ -64,92 +66,175 @@
     <p class="section-eyebrow">08 of 08</p>
     <h1 class="section-title">Engagement Components</h1>
     <p class="description">Interactive elements for user engagement.</p>
-    <div class="project-meta">202</div>
+    <div class="project-meta">2026</div>
     <!-- This div displays the year/project metadata -->
     <!-- class="project-meta" allows us to style this with CSS -->
     
-    <div class="project-title">Simple Poll App</div>
+    <div class="project-title">Scaffolding Survey</div>
     <!-- This div displays the main project title -->
     <!-- class="project-title" allows us to style this with CSS -->
     
-    <div class="project-subtitle">Firebase Real-time Database Tutorial</div>
+    <div class="project-subtitle">We'd like to get your thoughts on scaffolding in your neighborhood!</div>
     <!-- This div displays the student's name as a subtitle -->
     <!-- class="project-subtitle" allows us to style this with CSS -->
     
-    <div class="advisor">Learn how to connect frontend to backend</div>
+    <div class="advisor">Contact us for more information.</div>
     <!-- This div displays advisor information -->
     <!-- <br> creates a line break -->
     <!-- <strong> makes the text bold for emphasis -->
     
-    <div class="section-title">What is Firebase?</div>
-    <p>
-      Firebase is Google's backend-as-a-service platform that allows you to build web applications 
-      without managing servers. In this tutorial, we'll use Firebase Realtime Database to create 
-      a simple poll that updates in real-time across all users.
+    <div class="section-title">Scaffolding Survey</div>
+    <p class="description">
+     Scaffolding and sidewalk sheds are a familiar part of New York City, protecting pedestrians while buildings undergo maintenance. Although they serve an important safety function, they often affect how people experience streets and public spaces. We are conducting this survey to better understand how the public perceives these structures. Your feedback will help us explore new ideas for scaffolding that improve safety, comfort, accessibility, and the overall quality of the streetscape. Please share your thoughts about the scaffolding in your neighborhood.
     </p>
 
-    <!-- Poll Section -->
-    <div class="section-title">Simple Poll</div>
-    <p>Click a button to vote. The results update in real-time thanks to Firebase!</p>
-    
+    <!-- ============================================================ -->
+    <!-- SURVEY QUESTIONS                                               -->
+    <!-- Each question reuses the .poll-container / .poll-question card -->
+    <!-- styling already defined for the Yes/No vote below.             -->
+    <!-- ============================================================ -->
+
+    <!-- Question 1: Yes/No vote - written to Firebase immediately on click -->
     <div class="poll-container">
-      <!-- Poll question -->
       <div class="poll-question">
-        <h3>Do you like this tutorial?</h3>
+        <span class="question-number">1</span>
+        <h3>Do you think the scaffolding in your neighborhood is well maintained?</h3>
       </div>
-      
+      <p class="survey-label">Click a button to vote. Results update in real-time.</p>
+
       <!-- Vote buttons -->
       <div class="vote-buttons">
         <button class="vote-btn vote-yes" id="vote-yes">
           <span class="vote-text">Yes</span>
           <span class="vote-count" id="yes-count">0</span>
         </button>
-        
+
         <button class="vote-btn vote-no" id="vote-no">
           <span class="vote-text">No</span>
           <span class="vote-count" id="no-count">0</span>
         </button>
       </div>
-      
+
       <!-- Total votes display -->
       <div class="total-votes">
         <p>Total votes: <span id="total-votes">0</span></p>
       </div>
     </div>
 
-    <!-- Tutorial Section -->
-    <div class="section-title">How It Works</div>
-    <p>
-      This app demonstrates several key Firebase concepts:
-    </p>
-    
-    <div class="tutorial-steps">
-      <div class="step">
-        <h4>1. Firebase Configuration</h4>
-        <p>We connect to Firebase using configuration settings in our JavaScript file.</p>
+    <!-- Question 2: free text response -->
+    <div class="poll-container">
+      <div class="poll-question">
+        <span class="question-number">2</span>
+        <h3>What is the first word that comes to mind when you think of scaffolding?</h3>
       </div>
-      
-      <div class="step">
-        <h4>2. Real-time Database</h4>
-        <p>When someone votes, the data is saved to Firebase and automatically updates on all connected devices.</p>
-      </div>
-      
-      <div class="step">
-        <h4>3. Event Listeners</h4>
-        <p>Firebase listens for changes in the database and updates our UI automatically.</p>
-      </div>
-      </div>
-      <!-- Status Display -->
-      <div class="section-title">Connection Status</div>
-      <div id="connection-status" class="status-display">
-        <p>Connecting to Firebase...</p>
-      </div>
-    
-    <!-- End of main content area -->
-
+      <input type="text" id="survey-word" class="survey-text-input" placeholder="Type a word...">
     </div>
+
+    <!-- Question 3: checkboxes - "Other" reveals a text field for a custom answer -->
+    <div class="poll-container">
+      <div class="poll-question">
+        <span class="question-number">3</span>
+        <h3>What improvements would you most like to see in future scaffolding designs?</h3>
+      </div>
+      <!-- Each option is a real checkbox input hidden behind a styled .checkbox-mark -->
+      <div class="checkbox-options" id="improvements-options">
+        <label class="checkbox-option">
+          <input type="checkbox" value="Better lighting">
+          <span class="checkbox-mark"></span>
+          Better lighting
+        </label>
+        <label class="checkbox-option">
+          <input type="checkbox" value="More seating">
+          <span class="checkbox-mark"></span>
+          More seating
+        </label>
+        <label class="checkbox-option">
+          <input type="checkbox" value="Public art">
+          <span class="checkbox-mark"></span>
+          Public art
+        </label>
+        <label class="checkbox-option">
+          <input type="checkbox" value="Better shading">
+          <span class="checkbox-mark"></span>
+          Better shading
+        </label>
+        <label class="checkbox-option">
+          <input type="checkbox" value="Improved accessibility">
+          <span class="checkbox-mark"></span>
+          Improved accessibility
+        </label>
+        <label class="checkbox-option">
+          <input type="checkbox" value="Better maintenance">
+          <span class="checkbox-mark"></span>
+          Better maintenance
+        </label>
+        <label class="checkbox-option">
+          <input type="checkbox" id="improvements-other-check" value="Other">
+          <span class="checkbox-mark"></span>
+          Other
+        </label>
+      </div>
+      <!-- Hidden until the "Other" checkbox above is checked -->
+      <input type="text" id="improvements-other-text" class="survey-text-input other-text" placeholder="Tell us more..." hidden>
+    </div>
+
+    <!-- Question 4: 1-10 slider -->
+    <div class="poll-container">
+      <div class="poll-question">
+        <span class="question-number">4</span>
+        <h3>How safe do you feel when walking under scaffolding?</h3>
+      </div>
+      <div class="slider-labels">
+        <span>Very safe</span>
+        <span class="slider-value-display" id="safety-slider-value">5</span>
+        <span>Unsafe</span>
+      </div>
+      <input type="range" id="safety-slider" class="survey-slider" min="1" max="10" value="5">
+    </div>
+
+    <!-- Question 5: checkboxes - "Other" reveals a text field -->
+    <div class="poll-container">
+      <div class="poll-question">
+        <span class="question-number">5</span>
+        <h3>Have you used a scaffolded area for something other than walking through?</h3>
+      </div>
+      <div class="checkbox-options" id="usage-options">
+        <label class="checkbox-option">
+          <input type="checkbox" value="Waiting">
+          <span class="checkbox-mark"></span>
+          Waiting
+        </label>
+        <label class="checkbox-option">
+          <input type="checkbox" value="Shelter from the rain">
+          <span class="checkbox-mark"></span>
+          Shelter from the rain
+        </label>
+        <label class="checkbox-option">
+          <input type="checkbox" value="Leisure / hanging out">
+          <span class="checkbox-mark"></span>
+          Leisure / hanging out
+        </label>
+        <label class="checkbox-option">
+          <input type="checkbox" id="usage-other-check" value="Other">
+          <span class="checkbox-mark"></span>
+          Other
+        </label>
+      </div>
+      <input type="text" id="usage-other-text" class="survey-text-input other-text" placeholder="Tell us more..." hidden>
+    </div>
+
+    <!-- Submit button: pushes answers to Questions 2-5 to Firebase as one response record -->
+    <div class="survey-submit-wrap">
+      <button id="survey-submit-btn" class="survey-submit-btn">Submit Survey &#8594;</button>
+    </div>
+
+    <!-- Status Display: shows live Firebase connection state -->
+    <div class="section-title">Connection Status</div>
+    <div id="connection-status" class="status-display">
+      <p>Connecting to Firebase...</p>
     </div>
   </main>
+  
   <script src="poll-app.js"></script>
 
   <footer class="site-footer">

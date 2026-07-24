@@ -110,11 +110,11 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .then(function() {
         console.log('Yes vote recorded successfully');
-        showVoteConfirmation('Yes');
+        showToast('Thank you for voting "Yes"!', '#4CAF50');
       })
       .catch(function(error) {
         console.error('Error recording vote:', error);
-        showError('Failed to record vote. Please try again.');
+        showToast('Failed to record vote. Please try again.', '#f44336');
       });
   });
 
@@ -133,19 +133,113 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .then(function() {
         console.log('No vote recorded successfully');
-        showVoteConfirmation('No');
+        showToast('Thank you for voting "No"!', '#4CAF50');
       })
       .catch(function(error) {
         console.error('Error recording vote:', error);
-        showError('Failed to record vote. Please try again.');
+        showToast('Failed to record vote. Please try again.', '#f44336');
       });
   });
 
   // ========================================
-  // STEP 5: HELPER FUNCTIONS
+  // STEP 5: SURVEY QUESTIONS 2-5
+  // ========================================
+  // Unlike the Yes/No poll, these questions are only saved once the user
+  // clicks "Submit Survey" - each submission is pushed as its own record
+  // under 'survey/responses' so nothing gets overwritten.
+
+  const wordInput = document.getElementById('survey-word');
+  const improvementsOptions = document.getElementById('improvements-options');
+  const improvementsOtherCheck = document.getElementById('improvements-other-check');
+  const improvementsOtherText = document.getElementById('improvements-other-text');
+  const safetySlider = document.getElementById('safety-slider');
+  const safetySliderValue = document.getElementById('safety-slider-value');
+  const usageOptions = document.getElementById('usage-options');
+  const usageOtherCheck = document.getElementById('usage-other-check');
+  const usageOtherText = document.getElementById('usage-other-text');
+  const surveySubmitBtn = document.getElementById('survey-submit-btn');
+
+  // Reveal the "Other" text field only while its checkbox is checked
+  function wireOtherToggle(checkbox, textInput) {
+    checkbox.addEventListener('change', function() {
+      textInput.hidden = !checkbox.checked;
+      if (!checkbox.checked) {
+        textInput.value = '';
+      }
+    });
+  }
+  wireOtherToggle(improvementsOtherCheck, improvementsOtherText);
+  wireOtherToggle(usageOtherCheck, usageOtherText);
+
+  // Keep the number badge next to the slider in sync while dragging
+  safetySlider.addEventListener('input', function() {
+    safetySliderValue.textContent = safetySlider.value;
+    safetySliderValue.classList.add('updated');
+    setTimeout(function() {
+      safetySliderValue.classList.remove('updated');
+    }, 300);
+  });
+
+  // Collect the checked values (plus an "Other: ..." entry) from a checkbox group
+  function getCheckedValues(container, otherCheck, otherText) {
+    const values = [];
+    container.querySelectorAll('input[type="checkbox"]:checked').forEach(function(box) {
+      if (box === otherCheck) {
+        if (otherText.value.trim()) {
+          values.push('Other: ' + otherText.value.trim());
+        }
+      } else {
+        values.push(box.value);
+      }
+    });
+    return values;
+  }
+
+  surveySubmitBtn.addEventListener('click', function() {
+    const response = {
+      firstWord: wordInput.value.trim(),
+      improvements: getCheckedValues(improvementsOptions, improvementsOtherCheck, improvementsOtherText),
+      safetyRating: parseInt(safetySlider.value, 10),
+      usage: getCheckedValues(usageOptions, usageOtherCheck, usageOtherText),
+      submittedAt: firebase.database.ServerValue.TIMESTAMP
+    };
+
+    surveySubmitBtn.disabled = true;
+
+    database.ref('survey/responses').push(response)
+      .then(function() {
+        console.log('Survey response recorded successfully');
+        showToast('Thanks for completing the survey!', '#4CAF50');
+
+        // Reset the form for the next respondent
+        wordInput.value = '';
+        improvementsOptions.querySelectorAll('input[type="checkbox"]').forEach(function(box) {
+          box.checked = false;
+        });
+        improvementsOtherText.hidden = true;
+        improvementsOtherText.value = '';
+        usageOptions.querySelectorAll('input[type="checkbox"]').forEach(function(box) {
+          box.checked = false;
+        });
+        usageOtherText.hidden = true;
+        usageOtherText.value = '';
+        safetySlider.value = 5;
+        safetySliderValue.textContent = '5';
+      })
+      .catch(function(error) {
+        console.error('Error recording survey response:', error);
+        showToast('Failed to submit survey. Please try again.', '#f44336');
+      })
+      .finally(function() {
+        surveySubmitBtn.disabled = false;
+      });
+  });
+
+  // ========================================
+  // STEP 6: HELPER FUNCTIONS
   // ========================================
   // These functions help us manage the user interface and provide feedback
-  
+
   /**
    * updateTotalVotes Function
    * Purpose: Calculate and display the total number of votes
@@ -156,26 +250,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const yesVotes = parseInt(yesCount.textContent) || 0;
     const noVotes = parseInt(noCount.textContent) || 0;
     const total = yesVotes + noVotes;
-    
+
     // Update the total display
     totalVotes.textContent = total;
   }
 
   /**
-   * showVoteConfirmation Function
-   * Purpose: Show a brief confirmation message when a vote is recorded
-   * @param {string} vote - The vote that was recorded ('Yes' or 'No')
+   * showToast Function
+   * Purpose: Show a brief, colored confirmation/error message in the corner of the screen
+   * @param {string} message - The text to display
+   * @param {string} color - Background color, e.g. '#4CAF50' (success) or '#f44336' (error)
    */
-  function showVoteConfirmation(vote) {
-    // Create a temporary confirmation message
-    const confirmation = document.createElement('div');
-    confirmation.className = 'vote-confirmation';
-    confirmation.textContent = `Thank you for voting "${vote}"!`;
-    confirmation.style.cssText = `
+  function showToast(message, color) {
+    const toast = document.createElement('div');
+    toast.className = 'vote-confirmation';
+    toast.textContent = message;
+    toast.style.cssText = `
       position: fixed;
       top: 20px;
       right: 20px;
-      background: #4CAF50;
+      background: ${color};
       color: white;
       padding: 12px 20px;
       border-radius: 4px;
@@ -183,53 +277,21 @@ document.addEventListener('DOMContentLoaded', function() {
       z-index: 1000;
       animation: slideIn 0.3s ease-out;
     `;
-    
-    // Add the confirmation to the page
-    document.body.appendChild(confirmation);
-    
-    // Remove the confirmation after 3 seconds
+
+    document.body.appendChild(toast);
+
     setTimeout(function() {
-      confirmation.style.animation = 'slideOut 0.3s ease-in';
+      toast.style.animation = 'slideOut 0.3s ease-in';
       setTimeout(function() {
-        if (confirmation.parentNode) {
-          confirmation.parentNode.removeChild(confirmation);
+        if (toast.parentNode) {
+          toast.parentNode.removeChild(toast);
         }
       }, 300);
     }, 3000);
   }
 
-  /**
-   * showError Function
-   * Purpose: Show an error message if something goes wrong
-   * @param {string} message - The error message to display
-   */
-  function showError(message) {
-    const error = document.createElement('div');
-    error.className = 'error-message';
-    error.textContent = message;
-    error.style.cssText = `
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #f44336;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 4px;
-      font-size: 14px;
-      z-index: 1000;
-    `;
-    
-    document.body.appendChild(error);
-    
-    setTimeout(function() {
-      if (error.parentNode) {
-        error.parentNode.removeChild(error);
-      }
-    }, 5000);
-  }
-
   // ========================================
-  // STEP 6: CONNECTION STATUS MONITORING
+  // STEP 7: CONNECTION STATUS MONITORING
   // ========================================
   // Firebase provides connection status information
   // This helps us know if we're connected to the database
@@ -250,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // ========================================
-  // STEP 7: INITIALIZATION
+  // STEP 8: INITIALIZATION
   // ========================================
   // Set up any initial state when the page loads
   
