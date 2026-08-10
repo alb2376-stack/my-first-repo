@@ -1,6 +1,6 @@
-// Firebase Poll App - Tutorial JavaScript
-// This script demonstrates how to integrate Firebase Realtime Database with a simple web app
-// It shows real-time data synchronization across multiple users
+// engagement.js: live poll and survey backed by Firebase Realtime Database.
+// Page: engagement.html
+// Votes sync in real time across everyone who has the page open.
 
 // Wait for the DOM (Document Object Model) to be fully loaded before running any code
 // This ensures all HTML elements exist before we try to access them

@@ -1,6 +1,6 @@
-// graph-from-csv.js - CSV-Based Network Graph with D3.js
-// This script demonstrates how to load network data from CSV files.
-// The node list is not stored anywhere - it's derived entirely from edges.csv.
+// relational.js: D3 force-directed network graph built from CSV edges.
+// Page: relational.html   Data: data/edges.csv
+// There is no node list anywhere: nodes are derived entirely from the edges.
 
 var graphSketch3 = function() {  // Define the main function that contains all graph logic
   // ============================================================================
@@ -16,7 +16,7 @@ var graphSketch3 = function() {  // Define the main function that contains all g
   // ============================================================================
 
   // Load the edges data - nodes are derived from it below, there is no separate nodes file
-  d3.csv('edges.csv').then(function(edgesData) {
+  d3.csv('data/edges.csv').then(function(edgesData) {
     console.log('Loaded edges:', edgesData);  // Log the loaded edges data
 
     // Process the edges data - convert string values to appropriate types

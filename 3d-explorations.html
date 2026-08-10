@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3D Drawing — Atmospheric Exploration — Spatial Canvases</title>
+  <title>3D Explorations — Spatial Canvases</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -25,40 +25,32 @@
       <span class="tab-circle">&#8962;</span>
       <span class="tab-label">Home</span>
     </a>
-    <a href="2d-primitives.html" class="tab-link" style="--tab-color: var(--orange);">
+    <a href="2d-explorations.html" class="tab-link" style="--tab-color: var(--orange);">
       <span class="tab-circle">01</span>
-      <span class="tab-label">2D Primitives</span>
+      <span class="tab-label">2D Explorations</span>
     </a>
-    <a href="2d-interactive.html" class="tab-link" style="--tab-color: var(--coral);">
+    <a href="3d-explorations.html" class="tab-link active" style="--tab-color: var(--red);">
       <span class="tab-circle">02</span>
-      <span class="tab-label">2D Interactive</span>
-    </a>
-    <a href="3d-geometries.html" class="tab-link" style="--tab-color: var(--red);">
-      <span class="tab-circle">03</span>
-      <span class="tab-label">3D Geometries</span>
-    </a>
-    <a href="3d-atmospheric.html" class="tab-link active" style="--tab-color: var(--pink-light);">
-      <span class="tab-circle">04</span>
-      <span class="tab-label">3D Atmospheric</span>
+      <span class="tab-label">3D Explorations</span>
     </a>
     <a href="d3-exploration.html" class="tab-link" style="--tab-color: var(--peach);">
-      <span class="tab-circle">05</span>
-      <span class="tab-label">D3 Exploration</span>
+      <span class="tab-circle">03</span>
+      <span class="tab-label">Temporal Structure</span>
     </a>
     <a href="relational.html" class="tab-link" style="--tab-color: var(--light-orange);">
-      <span class="tab-circle">06</span>
+      <span class="tab-circle">04</span>
       <span class="tab-label">Relational Structures</span>
     </a>
     <a href="geospatial.html" class="tab-link" style="--tab-color: var(--pink);">
-      <span class="tab-circle">07</span>
+      <span class="tab-circle">05</span>
       <span class="tab-label">Geospatial Structures</span>
     </a>
     <a href="engagement.html" class="tab-link" style="--tab-color: var(--coral);">
-      <span class="tab-circle">08</span>
+      <span class="tab-circle">06</span>
       <span class="tab-label">Engagement Components</span>
     </a>
     <a href="agents.html" class="tab-link" style="--tab-color: var(--peach);">
-      <span class="tab-circle">09</span>
+      <span class="tab-circle">07</span>
       <span class="tab-label">Agents</span>
     </a>
   </nav>
@@ -66,9 +58,19 @@
   <main>
     <a href="index.html" class="back-link">&#8592; Back to all</a>
 
-    <p class="section-eyebrow">04 of 09</p>
-    <h1 class="section-title">3D Drawing — Atmospheric Exploration</h1>
-    <p class="description">Atmospheric experiment!</p>
+    <p class="section-eyebrow">02 of 07</p>
+    <h1 class="section-title">3D Explorations</h1>
+    <p class="description">Three.js geometries and an atmospheric scene, both orbit-controlled.</p>
+
+    <h2 class="sketch-title">3D Geometries</h2>
+    <p class="description">Colors, shapes, opacities! Experimenting with Three.js geometries and using the existing file to change its properties to match my theme and explore controlling colors, and opacities to represent different materials.</p>
+
+    <div class="canvas-frame">
+      <div id="threejs-container-1"></div>
+    </div>
+
+    <h2 class="sketch-title">3D Drawing: Atmospheric Exploration</h2>
+    <p class="description">Atmospheric experiment! Using Three.js to create a dynamic, immersive environment. In this object I used the snow atmosphere effect, and learned different controls of speed and amount to manipulate the visual effect.</p>
 
     <div class="canvas-frame">
       <div id="threejs-container-2"></div>
@@ -79,7 +81,8 @@
     <p>Computational Design Workflows — <strong>Aqila Bakri</strong>, Columbia GSAPP</p>
   </footer>
 
-  <script src="atmospheric-geometry.js"></script>
+  <script src="js/3d-geometries.js"></script>
+  <script src="js/3d-atmospheric.js"></script>
 
 </body>
 </html>

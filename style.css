@@ -307,6 +307,14 @@ main {
   margin: 0 0 8px;
 }
 
+.sketch-title {
+  font-family: 'Kanit', sans-serif;
+  font-weight: 900;
+  font-size: clamp(20px, 2.6vw, 26px);
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+
 main p.description {
   font-size: 16px;
   line-height: 1.6;

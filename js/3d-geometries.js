@@ -1,5 +1,7 @@
-// spatial-canvas-threejs.js
-// Three.js scene: grid, primitives, and orbit controls
+// 3d-geometries.js: Three.js scene: grid, lit primitives, and orbit controls.
+// Page: 3d-explorations.html   Container: #threejs-container-1
+// Wrapped in an IIFE so its scene variables stay off the global scope and do
+// not collide with 3d-atmospheric.js on the same page.
 
 (function() {
   // Scene, camera, renderer setup

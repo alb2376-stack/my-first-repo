@@ -1,4 +1,6 @@
-// 2D Drawing Sketch - using p5.js instance mode
+// 2d-primitives.js: static pattern built from p5.js circle primitives.
+// Page: 2d-explorations.html   Container: #canvas-container-1
+// Uses p5 instance mode so this sketch can share a page with 2d-interactive.js.
 var sketch1 = function(p) {
 
   // All variables are scoped to this instance

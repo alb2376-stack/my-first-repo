@@ -1,0 +1,13 @@
+# Secrets — never commit API keys. Anything pushed to a public repo stays
+# public, including in the commit history.
+*.key
+*secret*
+*API*KEY*
+*api*key*
+.env
+.env.*
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp

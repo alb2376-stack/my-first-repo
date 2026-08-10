@@ -1,4 +1,6 @@
-// Mouse Trail Sketch - using p5.js instance mode
+// 2d-interactive.js: mouse-trail animation over a gradient background.
+// Page: 2d-explorations.html   Container: #canvas-container-2
+// Uses p5 instance mode so this sketch can share a page with 2d-primitives.js.
 var sketch2 = function(p) {
 
   // All variables are scoped to this instance

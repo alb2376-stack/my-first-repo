@@ -1,5 +1,7 @@
-// rotating-primitives.js
-// Three.js scene: still primitives on the same plane with snow atmosphere
+// 3d-atmospheric.js: Three.js scene: primitives on a plane in falling snow.
+// Page: 3d-explorations.html   Container: #threejs-container-2
+// Wrapped in an IIFE so its scene variables stay off the global scope and do
+// not collide with 3d-geometries.js on the same page.
 
 (function() {
   // Scene, camera, renderer setup

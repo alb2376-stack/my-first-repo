@@ -1,5 +1,6 @@
-// OpenAI Hello World - minimal chat script
-// SECURITY: never hardcode a real API key here — this file is public on GitHub.
+// agents.js: minimal chat interface against the OpenAI chat completions API.
+// Page: agents.html
+// SECURITY: never hardcode a real API key here. This file is public on GitHub.
 // Instead, each visitor is prompted for their own key, kept only in this browser's localStorage.
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -54,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const errorText = await response.text();
         if (response.status === 401) {
           localStorage.removeItem('openai_api_key');
-          throw new Error('Invalid API key. It has been cleared — try sending again to re-enter it.');
+          throw new Error('Invalid API key. It has been cleared. Try sending again to re-enter it.');
         }
         throw new Error(`API request failed: ${response.status} ${response.statusText}\n${errorText}`);
       }

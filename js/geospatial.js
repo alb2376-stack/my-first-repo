@@ -1,5 +1,6 @@
 /*
- * MAPBOX TUTORIAL: Loading External GeoJSON Data - NYC Sidewalk Sheds
+ * geospatial.js: Mapbox GL JS map of NYC sidewalk sheds
+ * Page: geospatial.html   Container: #mapbox-container-3   Data: data/sheds.geojson
  * =====================================================================
  * 
  * This script demonstrates how to load and visualize data from external GeoJSON files
@@ -66,7 +67,7 @@ var mapboxSketch03 = function() {
       // ========================================================================
       
       // Load the GeoJSON file using fetch API
-      fetch('sheds.geojson')
+      fetch('data/sheds.geojson')
           .then(response => {
               if (!response.ok) {
                   throw new Error(`HTTP error! status: ${response.status}`);
@@ -363,7 +364,7 @@ var mapboxSketch03 = function() {
               // ====================================================================
               
               console.log('Mapbox External Data Map initialized');
-              console.log('Data loaded from: sheds.geojson');
+              console.log('Data loaded from: data/sheds.geojson');
               console.log('Features loaded:');
               console.log(`- ${data.features.filter(f => f.geometry.type === 'Point').length} sidewalk shed permits`);
               console.log(`- Total features: ${data.features.length}`);

@@ -1,5 +1,6 @@
-// Calendar Heatmap Visualization
-// Simplified version that directly uses values from -100 to 100
+// d3-exploration.js: D3 calendar heatmap of daily step counts.
+// Page: d3-exploration.html   Container: #d3-container-4   Data: data/my-steps.csv
+// Values run from -100 to 100 and are mapped straight onto the color scale.
 (function() { // Start an immediately invoked function expression (IIFE) to avoid global scope pollution
   "use strict"; // Enable strict mode for better error checking and performance
 
@@ -31,7 +32,7 @@
   const countDay = i => (i + 6) % 7; // Convert Sunday=0 to Monday=0 format
 
   // Load and process the CSV data
-  d3.csv("my-steps.csv", d => ({ // Load CSV file and transform each row
+  d3.csv("data/my-steps.csv", d => ({ // Load CSV file and transform each row
     Date: d3.utcParse("%-m/%-d/%Y")(d.Date), // Parse date string to Date object
     Value: +d.Steps // Convert close price string to number (now treated as direct value)
   })).then(function(data) { // Handle successful data loading
