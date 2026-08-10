@@ -17,7 +17,9 @@
   const grid = new THREE.GridHelper(16, 32, 0xcccccc, 0xcccccc);
   scene.add(grid);
 
-  // Add ambient and directional light
+  // These shapes use MeshPhongMaterial, which only shows up if something is
+  // lighting it. Ambient light lifts everything evenly, the directional light
+  // gives one side a highlight so the forms read as three dimensional.
   const ambient = new THREE.AmbientLight(0xffffff, 0.7);
   scene.add(ambient);
   const dirLight = new THREE.DirectionalLight(0xffffff, 0.7);
@@ -71,7 +73,9 @@ scene.add(cone);
   camera.position.set(8, 8, 8);
   camera.lookAt(0, 0, 0);
 
-  // OrbitControls
+  // OrbitControls lets you drag to rotate and scroll to zoom. Damping adds a
+  // little glide after you let go, and min/max distance stops you from flying
+  // inside the shapes or losing them off in the distance.
   const controls = new THREE.OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
   controls.dampingFactor = 0.1;

@@ -1,3 +1,12 @@
+/* ==========================================================================
+   Spatial Canvases - all styling for every page in the site.
+   Organized top to bottom in the order things appear: header, tab bar, hero,
+   home cards, subpage headings, canvas frames, then the poll and survey
+   components used on the Engagement and Agents tabs.
+   Colors live as tokens in :root below, so changing one there changes it
+   everywhere. Per-tab accents come in from the HTML as --tab-color/--accent.
+   ========================================================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 :root {

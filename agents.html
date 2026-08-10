@@ -9,6 +9,7 @@
 </head>
 <body>
 
+  <!-- Site header. Same on every page. -->
   <header class="site-header">
     <a href="https://www.arch.columbia.edu/"><div class="left">Columbia GSAPP</div></a>
     <div class="center">
@@ -19,6 +20,8 @@
     
   </header>
 
+  <!-- Tab bar. The same block sits on every page; the tab for the page I'm on
+       carries the "active" class. --tab-color sets that tab's circle color. -->
   <nav class="site-tabs">
     <a href="index.html" class="tab-link" style="--tab-color: var(--pink);">
       <span class="tab-circle">&#8962;</span>
@@ -72,6 +75,9 @@
     </p>
     <div class="project-meta">2026</div>
 
+    <!-- Chat box. I reuse the .poll-container card styling from the Engagement
+         tab so this page matches without new CSS. The input, the Send button,
+         and the #output div below are the three ids agents.js looks for. -->
     <div class="poll-container">
       <div class="poll-question">
         <span class="question-number">AI</span>
@@ -90,8 +96,12 @@
     </div>
   </main>
 
+  <!-- Sends the message straight from the browser to the OpenAI API. No key is
+       stored in this repo: each visitor is asked for their own, and it stays in
+       their browser's localStorage. -->
   <script src="js/agents.js"></script>
 
+  <!-- Footer. Same on every page. -->
   <footer class="site-footer">
     <p>Computational Design Workflows — <strong>Aqila Bakri</strong>, Columbia GSAPP</p>
   </footer>

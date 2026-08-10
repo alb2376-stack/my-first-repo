@@ -6,11 +6,14 @@
   <title>Engagement Components</title>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- Firebase, split into two files: the app core, then the Realtime Database.
+       Both have to load before engagement.js runs at the bottom of the page. -->
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
 </head>
 <body>
 
+  <!-- Site header. Same on every page. -->
   <header class="site-header">
     <a href="https://www.arch.columbia.edu/"><div class="left">Columbia GSAPP</div></a>
     <div class="center">
@@ -20,6 +23,8 @@
     <div class="right"><a href="#">About</a></div>
   </header>
 
+  <!-- Tab bar. The same block sits on every page; the tab for the page I'm on
+       carries the "active" class. --tab-color sets that tab's circle color. -->
   <nav class="site-tabs">
     <a href="index.html" class="tab-link" style="--tab-color: var(--pink);">
       <span class="tab-circle">&#8962;</span>
@@ -243,6 +248,7 @@
   
   <script src="js/engagement.js"></script>
 
+  <!-- Footer. Same on every page. -->
   <footer class="site-footer">
     <p>Computational Design Workflows — <strong>Aqila Bakri</strong>, Columbia GSAPP</p>
   </footer>

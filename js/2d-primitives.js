@@ -21,7 +21,12 @@ var sketch1 = function(p) {
 
   function drawPrimitives() {
 
-    // White circles
+    // The pattern is a 3x3 grid of circles spaced 400px apart, with the corners
+    // and edges sitting half off the canvas. Because the spacing matches the
+    // canvas size, the shapes line up if the image is tiled, which is what
+    // makes it read as seamless.
+
+    // White circles first, at 400px across.
     p.fill(255);
     p.stroke(255);
 
@@ -37,7 +42,8 @@ var sketch1 = function(p) {
     p.circle(800, 400, 400);
     p.circle(800, 800, 400);
 
-    // Orange circles
+    // Orange circles on the same centers but smaller, so each one sits inside
+    // a white circle and reads as a ring.
     p.fill(245, 163, 62);
     p.stroke(245, 163, 62);
 
@@ -56,5 +62,6 @@ var sketch1 = function(p) {
 
 }; // <-- closes sketch1
 
-// Create the instance
+// Create the instance. Passing the container id here is what keeps this sketch
+// tied to its own div instead of appending to the end of the page.
 var myp5_1 = new p5(sketch1, 'canvas-container-1');

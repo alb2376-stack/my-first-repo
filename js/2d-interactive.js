@@ -23,7 +23,9 @@ var sketch2 = function(p) {
 
   p.draw = function() {
 
-    // Draw gradient background
+    // Draw gradient background. p5 has no gradient fill, so I draw one
+    // horizontal line per pixel row and shift the color a little each time.
+    // Redrawing it every frame also wipes the previous trail.
     for (var y = 0; y < p.height; y++) {
       var percent = p.map(y, 0, p.height, 0, 1);
       var lineColor = p.lerpColor(topColor, bottomColor, percent);
@@ -35,12 +37,18 @@ var sketch2 = function(p) {
     // Draw mouse trails
     p.noStroke();
 
+    // Record where the mouse is on this frame, then drop the oldest position
+    // once there are more than 100. Capping the array is what keeps the trail a
+    // fixed length instead of growing forever.
     trails.push(p.createVector(p.mouseX, p.mouseY));
 
     if (trails.length > 100) {
       trails.shift();
     }
 
+    // Size each circle by its position in the array, so the oldest points are
+    // tiny and the newest are largest. That taper is what makes it read as a
+    // trail following the cursor rather than a line of identical dots.
     for (var i = 0; i < trails.length; i++) {
       var pos = trails[i];
 

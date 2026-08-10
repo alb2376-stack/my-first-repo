@@ -10,6 +10,7 @@
 </head>
 <body>
 
+  <!-- Site header. Same on every page. -->
   <header class="site-header">
     <a href="https://www.arch.columbia.edu/"><div class="left">Columbia GSAPP</div></a>
     <div class="center">
@@ -19,6 +20,8 @@
     <div class="right"><a href="#">About</a></div>
   </header>
 
+  <!-- Tab bar. The same block sits on every page; the tab for the page I'm on
+       carries the "active" class. --tab-color sets that tab's circle color. -->
   <nav class="site-tabs">
     <a href="index.html" class="tab-link" style="--tab-color: var(--pink);">
       <span class="tab-circle">&#8962;</span>
@@ -61,15 +64,20 @@
     <h1 class="section-title">Temporal Structure</h1>
     <p class="description">Graphing steps and creating temporal visualizations. I used and downloaded my personal CSV file to visualize my data and create interactive visualizations using D3.js. I made sure to include proper labels and tooltips for better user experience, as well as stayed on theme with the pink and orange tones. </p>
 
+    <!-- The heatmap is drawn into this empty div. D3 builds the SVG itself, so
+         there is no markup for the calendar here. -->
     <div class="canvas-frame">
       <div id="d3-container-4"></div>
     </div>
   </main>
 
+  <!-- Footer. Same on every page. -->
   <footer class="site-footer">
     <p>Computational Design Workflows — <strong>Aqila Bakri</strong>, Columbia GSAPP</p>
   </footer>
 
+  <!-- Reads my step counts from data/my-steps.csv. Because it loads a file,
+       this page needs a local server rather than opening the file directly. -->
   <script src="js/d3-exploration.js"></script>
 
 </body>

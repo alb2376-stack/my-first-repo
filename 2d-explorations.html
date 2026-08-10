@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2D Explorations — Spatial Canvases</title>
+  <!-- p5.js from a CDN. One copy of the library runs both sketches below. -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- Site header. Same on every page. -->
   <header class="site-header">
     <a href="https://www.arch.columbia.edu/"><div class="left">Columbia GSAPP</div></a>
     <div class="center">
@@ -19,6 +21,8 @@
     <div class="right"><a href="#">About</a></div>
   </header>
 
+  <!-- Tab bar. The same block sits on every page; the tab for the page I'm on
+       carries the "active" class. --tab-color sets that tab's circle color. -->
   <nav class="site-tabs">
     <a href="index.html" class="tab-link" style="--tab-color: var(--pink);">
       <span class="tab-circle">&#8962;</span>
@@ -61,6 +65,8 @@
     <h1 class="section-title">2D Explorations</h1>
     <p class="description">Drawing with primitives and interactive mouse animation in p5.js.</p>
 
+    <!-- Sketch 1. Each sketch gets its own container div, and the matching
+         script attaches its canvas to that id. -->
     <h2 class="sketch-title">2D Drawing with Primitives</h2>
     <p class="description">Using basic shapes to create basic seamless patterns, and exploring color theory.</p>
 
@@ -68,6 +74,7 @@
       <div id="canvas-container-1"></div>
     </div>
 
+    <!-- Sketch 2. -->
     <h2 class="sketch-title">2D Interactive Mouse Animation</h2>
     <p class="description">Using mouse movements to create basic interactive designs. Continuing with the orange and yellow tones, I decided on a warm, vibrant palette that resembles a sunset. I used p5.js to implement this interactive sketch.</p>
 
@@ -76,10 +83,14 @@
     </div>
   </main>
 
+  <!-- Footer. Same on every page. -->
   <footer class="site-footer">
     <p>Computational Design Workflows — <strong>Aqila Bakri</strong>, Columbia GSAPP</p>
   </footer>
 
+  <!-- Both sketches are written in p5 instance mode, so their setup/draw
+       functions stay inside their own instance instead of fighting over the
+       global ones. That is what lets two sketches share this page. -->
   <script src="js/2d-primitives.js"></script>
   <script src="js/2d-interactive.js"></script>
 

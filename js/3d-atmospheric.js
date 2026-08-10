@@ -17,6 +17,9 @@
   // --------------------
   // Snow
   // --------------------
+  // 3000 snowflakes drawn as a single Points object rather than 3000 separate
+  // meshes, which is what keeps it running smoothly. Each flake is three
+  // numbers (x, y, z) in one long array of positions.
   const snowCount = 3000;
   const snowGeometry = new THREE.BufferGeometry();
   const snowPositions = [];
@@ -97,7 +100,10 @@
   function animate() {
     requestAnimationFrame(animate);
 
-    // Animate only the snow
+    // Animate only the snow. The geometry stays still, so all that changes each
+    // frame is every flake's y value dropping, plus a small sideways drift.
+    // Once a flake falls below zero it gets sent back to the top in a new spot,
+    // which is what makes the snowfall look endless.
     const positions = snow.geometry.attributes.position.array;
 
     for (let i = 1; i < positions.length; i += 3) {

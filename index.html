@@ -9,6 +9,7 @@
 </head>
 <body>
 
+  <!-- Site header. Same on every page: school, course, About link. -->
   <header class="site-header">
     <a href="https://www.arch.columbia.edu/"><div class="left">Columbia GSAPP</div></a>
     <div class="center">
@@ -18,6 +19,9 @@
     <div class="right"><a href="#">About</a></div>
   </header>
 
+  <!-- Tab bar. I copy this same block into all eight pages and move the
+       "active" class to whichever page I'm on. Each tab carries its own
+       --tab-color, which style.css uses to fill in the circle. -->
   <nav class="site-tabs">
     <a href="index.html" class="tab-link active" style="--tab-color: var(--pink);">
       <span class="tab-circle">&#8962;</span>
@@ -53,6 +57,7 @@
     </a>
   </nav>
 
+  <!-- Hero. Only the home page has this. -->
   <header class="hero">
     <div class="hero-inner">
       <span class="project-meta">2026</span>
@@ -67,6 +72,8 @@
     <h2 class="section-title" style="text-align:center; margin-bottom: 6px;">Spatial Canvases</h2>
     <p class="description" style="max-width: 620px; margin: 0 auto 36px; text-align:center;">Explorations across generative 2D primitives, interactive drawing, 3D geometry, temporal and relational structures, and geospatial data visualization, alongside experiments with backend AI agents and interactive engagement. Select a tab above or a card below to explore each piece.</p>
 
+    <!-- Card grid. One card per tab, numbered to match the tab bar above, so
+         adding a tab means adding a card here too. --accent tints the card. -->
     <div class="tab-grid">
 
       <a href="2d-explorations.html" class="tab-card" style="--accent: var(--orange);">
