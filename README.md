@@ -17,8 +17,8 @@ Open `index.html` in a browser, or serve the folder locally (see
 | # | Tab | Page | Script(s) | Library | Data |
 | --- | --- | --- | --- | --- | --- |
 | - | Home | `index.html` | - | - | - |
-| 01 | 2D Explorations | `2d-explorations.html` | `js/2d-primitives.js`, `js/2d-interactive.js` | p5.js | - |
-| 02 | 3D Explorations | `3d-explorations.html` | `js/3d-geometries.js`, `js/3d-atmospheric.js` | Three.js | - |
+| 01 | 2D Spatial Canvas | `2d-explorations.html` | `js/2d-primitives.js`, `js/2d-interactive.js` | p5.js | - |
+| 02 | 3D Spatial Canvas | `3d-explorations.html` | `js/3d-geometries.js`, `js/3d-atmospheric.js` | Three.js | - |
 | 03 | Temporal Structure | `d3-exploration.html` | `js/d3-exploration.js` | D3 | `data/my-steps.csv` |
 | 04 | Relational Structures | `relational.html` | `js/relational.js` | D3 | `data/edges.csv` |
 | 05 | Geospatial Structures | `geospatial.html` | `js/geospatial.js` | Mapbox GL JS | `data/sheds.geojson` |

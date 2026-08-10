@@ -1,7 +1,10 @@
-# Style Guide: Spatial Canvases
+# Style: Spatial Canvases
 
-How this site is supposed to look and behave. The scaffolding below is filled in
-from what's already in `style.css`; the blank fields are for you.
+How this site is supposed to look and behave. The scaffolding is filled in from
+what is already in `style.css`; the blank fields are for me.
+
+Related: [FEATURES.md](FEATURES.md) for what to build, [IDEAS.md](IDEAS.md) for
+what might come after.
 
 ---
 
@@ -11,7 +14,7 @@ from what's already in `style.css`; the blank fields are for you.
 <!-- e.g. warm, graphic, editorial, high-contrast -->
 
 **References / precedents**
-<!-- Sites, posters, books you want this to sit next to -->
+<!-- Sites, posters, books I want this to sit next to -->
 
 **What this site is not**
 <!-- Useful guardrail: e.g. "not a corporate dashboard", "not minimal-grey" -->
@@ -26,7 +29,7 @@ Tokens live in `:root` at the top of `style.css`. Change them there, never inlin
 | --- | --- | --- | --- |
 | `--cream` | `#fff8f0` | page background |  |
 | `--white` | `#ffffff` | header, cards, canvas frames |  |
-| `--peach` | `#fec59a` | tab accent (D3, Agents) |  |
+| `--peach` | `#fec59a` | tab accent (Temporal, Agents) |  |
 | `--orange` | `#fe9f5d` | tab accent (2D) |  |
 | `--coral` | `#fd6c41` | tab accent (Engagement) |  |
 | `--red` | `#fc2a0d` | tab accent (3D) |  |
@@ -40,7 +43,7 @@ Tokens live in `:root` at the top of `style.css`. Change them there, never inlin
 
 **Rules**
 - One accent color per tab, set via `--tab-color` / `--accent` on the element.
-- <!-- your rules: when to use teal? how much red is too much? -->
+- <!-- my rules: when to use teal? how much red is too much? -->
 
 ---
 
@@ -59,16 +62,16 @@ Tokens live in `:root` at the top of `style.css`. Change them there, never inlin
 
 ---
 
-## 4. Layout & components
+## 4. Layout and components
 
 | Component | Class | Notes |
 | --- | --- | --- |
 | Site header | `.site-header` | GSAPP left, course center, About right |
-| Tab bar | `.site-tabs` / `.tab-link` | Home + 7 numbered tabs, same on every page |
+| Tab bar | `.site-tabs` / `.tab-link` | Home plus 7 numbered tabs, same on every page |
 | Home cards | `.tab-grid` / `.tab-card` | One card per tab, numbered to match |
 | Canvas frame | `.canvas-frame` | White, rounded, soft shadow; wraps every sketch |
 | Back link | `.back-link` | Top of every subpage |
-| Footer | `.site-footer` | Name + school, same on every page |
+| Footer | `.site-footer` | Name and school, same on every page |
 
 **Spacing / sizing conventions**
 <!-- Canvas widths (currently 800px), section gaps, max text width (620px) -->
@@ -80,10 +83,12 @@ Tokens live in `:root` at the top of `style.css`. Change them there, never inlin
 - The tab bar and footer are duplicated in every HTML file, so change one, change all.
 - Sketch canvases are fixed at 800px wide; keep new ones matching.
 - Every subpage carries an eyebrow numbered `NN of 07`; update it if tabs change.
-- <!-- add your own -->
+- Every tab gets a contextual statement under its heading, in my own voice.
+- No em dashes in any copy on the site.
+- <!-- add my own -->
 
 ---
 
 ## 6. Open style questions
 
-- <!-- Things you haven't decided yet -->
+- <!-- Things I haven't decided yet -->

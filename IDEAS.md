@@ -1,7 +1,9 @@
-# Project Ideas: Spatial Canvases
+# Project ideas: Spatial Canvases
 
-A parking lot for ideas. Nothing here is a commitment; promote things to
-`FEATURES.md` when you decide to build them.
+A parking lot. Nothing here is a commitment; promote things to
+[FEATURES.md](FEATURES.md) when I decide to build them.
+
+Related: [STYLE.md](STYLE.md) for the visual language.
 
 ---
 
@@ -12,7 +14,7 @@ A parking lot for ideas. Nothing here is a commitment; promote things to
 |  |  |  |  | raw |
 |  |  |  |  |  |
 
-Status values: `raw` → `sketching` → `promoted to FEATURES.md` → `dropped`.
+Status values: `raw` to `sketching` to `promoted to FEATURES.md` to `dropped`.
 
 ---
 
@@ -20,8 +22,9 @@ Status values: `raw` → `sketching` → `promoted to FEATURES.md` → `dropped`
 
 | Dataset | Source | What's interesting about it | Format |
 | --- | --- | --- | --- |
-| NYC sidewalk sheds | (already in `data/sheds.geojson`) |  | GeoJSON |
-| My step counts | (already in `data/my-steps.csv`) |  | CSV |
+| NYC sidewalk sheds | already in `data/sheds.geojson` |  | GeoJSON |
+| My step counts | already in `data/my-steps.csv` |  | CSV |
+| E-waste classification | derived from the Baker Institute article, in `data/edges.csv` |  | CSV |
 |  |  |  |  |
 
 ---
@@ -34,8 +37,8 @@ Status values: `raw` → `sketching` → `promoted to FEATURES.md` → `dropped`
 
 ## 4. Longer notes
 
-<!-- Room to think out loud: what's this whole site arguing? what would a
-     final project look like? questions to bring to class. -->
+<!-- Room to think out loud: what is this whole site arguing? how do the seven
+     objects connect to each other? questions to bring to class. -->
 
 ---
 
