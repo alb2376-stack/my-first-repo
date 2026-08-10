@@ -11,13 +11,54 @@ what might come after.
 ## 1. Direction
 
 **Mood / adjectives**
-<!-- e.g. warm, graphic, editorial, high-contrast -->
+
+Warm, graphic, and sunset-toned. The site is bright, saturated, and playful,
+built almost entirely on pink and orange: peach, coral, red, and hot pink layered
+over cream, with no cool colors anywhere. It is bold before it is subtle,
+editorial rather than corporate, and closer to something printed than something
+engineered. The overall feeling is energetic and tactile, with enough structure
+underneath to keep seven very different exercises reading as one set.
+
+**Description of the style**
+
+An editorial, exhibition-catalog feel rather than a portfolio grid or a
+dashboard. A few things carry it:
+
+- **A warm ground, never white.** The page sits on cream, and pure white is
+  reserved for the things holding content: the header, the cards, and the frames
+  around each sketch. That reversal makes the work read as objects placed on a
+  surface instead of pixels on a screen.
+- **Type doing two different jobs.** Kanit Black for anything titled, heavy and
+  condensed enough to feel printed, against Poppins at light and medium weights
+  for reading. The contrast between the two is most of the personality.
+- **Numbering as the organizing device.** Every object is 01 through 07 in a
+  circle, repeated in the tab bar, on the cards, and in the eyebrow on each page.
+  It reads as wayfinding, closer to gallery signage than to web navigation, and
+  it is what makes seven separate exercises feel like one set.
+- **Color as index, not decoration.** Each tab owns an accent from the warm
+  range, so a page can be recognized by its color before its label is read.
+- **Everything matted.** Each sketch sits in a rounded white frame with a soft
+  shadow, so a p5 canvas, a D3 chart, and a Mapbox map are all presented the
+  same way despite being made with different tools.
 
 **References / precedents**
-<!-- Sites, posters, books I want this to sit next to -->
+
+<!-- My read on where this sits. Swap in your own if these are not right. -->
+
+- Risograph printing, where the fluorescent orange and pink inks overprint and
+  the paper stock stays warm. The palette here behaves the same way.
+- Exhibition and museum wayfinding, where numbered stations guide you through a
+  sequence of separate works.
+- Magazine contents pages and editorial layout, which is where the eyebrow,
+  section number, and standfirst description come from.
+- Swiss grid discipline in the structure, but warmed up and loosened rather than
+  neutral.
 
 **What this site is not**
-<!-- Useful guardrail: e.g. "not a corporate dashboard", "not minimal-grey" -->
+
+- Not a minimal grey portfolio, and not a corporate dashboard.
+- Not dark mode. The warmth of the paper is the point.
+- Not decorative for its own sake. Color carries information here.
 
 ---
 

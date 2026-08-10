@@ -1,49 +1,33 @@
 # Project ideas: Spatial Canvases
 
-A parking lot. Nothing here is a commitment; promote things to
-[FEATURES.md](FEATURES.md) when I decide to build them.
-
-Related: [STYLE.md](STYLE.md) for the visual language.
 
 ---
 
-## 1. Idea log
+## 1. The two I keep coming back to
 
-| Idea | What it would show | Data / tools | Which tab | Status |
-| --- | --- | --- | --- | --- |
-|  |  |  |  | raw |
-|  |  |  |  |  |
+### A scaffolding platform
 
-Status values: `raw` to `sketching` to `promoted to FEATURES.md` to `dropped`.
+The sidewalk shed research keeps pointing at something larger than a map. What if
+there were one place where people could report the condition of the scaffolding
+on their own block, look up what is currently standing nearby, and see the policy
+attached to it. The data already exists inside the permits; it is just unreadable
+to anyone who is not specifically hunting for it, which is the part an agent could
+solve by answering in plain language. The 3D canvas is where the speculative side
+would live, holding proposed shed designs as models people could turn around and
+judge for themselves. That is what would move the project from documenting a
+problem to putting something forward.
 
----
+**Open questions.** Where do the reports go once someone submits one, and who
+maintains any of it? Does an agent sitting on permit data genuinely help, or does
+it just add a layer between people and the information?
 
-## 2. Datasets I could use
+### Trash Track
 
-| Dataset | Source | What's interesting about it | Format |
-| --- | --- | --- | --- |
-| NYC sidewalk sheds | already in `data/sheds.geojson` |  | GeoJSON |
-| My step counts | already in `data/my-steps.csv` |  | CSV |
-| E-waste classification | derived from the Baker Institute article, in `data/edges.csv` |  | CSV |
-|  |  |  |  |
-
----
-
-## 3. Techniques to try
-
-- <!-- e.g. shaders, physics, WebGL text, scrollytelling, generative type -->
-
----
-
-## 4. Longer notes
-
-<!-- Room to think out loud: what is this whole site arguing? how do the seven
-     objects connect to each other? questions to bring to class. -->
+The same instinct applied to waste. Someone should be able to find the nearest
+collection point to their home, see how the thing they are throwing away is
+classified, and follow it past the curb. The classification graph in the
+Relational tab is the beginning of that, but right now it describes a system
+rather than helping anyone act inside it. An agent could take on the part that
+confuses everyone, which is what can go where and under what conditions.
 
 ---
-
-## 5. Dropped ideas (and why)
-
-| Idea | Why dropped |
-| --- | --- |
-|  |  |

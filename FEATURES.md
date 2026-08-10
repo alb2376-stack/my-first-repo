@@ -1,86 +1,33 @@
 # Feature planning: Spatial Canvases
 
-What is built, what is next, and what is known to be broken.
+## 1. Features I could add to this website - Scaffold Report Platform
 
-Related: [STYLE.md](STYLE.md) for how things should look, [IDEAS.md](IDEAS.md)
-for things not committed to yet.
+Smaller things I could build into the site as it already exists, each one a step
+toward one of the two ideas above.
 
----
 
-## 1. Current state
+- **A condition report form on the Engagement tab.** The Firebase survey already
+  writes and reads live, so the same pattern could take reports about a specific
+  shed instead of general opinions.
+- **Filters on the map.** Let people narrow the sidewalk sheds by borough or
+  community district, and bring in the percentage of sidewalk covered from the
+  Mapping Systems work rather than only counting sheds.
+- **A proposed shed in the 3D tab.** Swap the generic primitives for an actual
+  shed design people can orbit around, which turns that tab from an exercise into
+  the speculative piece of the platform.
+- **Permits over time in the Temporal tab.** The same dataset has dates, so it
+  could show how long sheds stay up, which is the thing people actually complain
+  about.
+- **An agent that knows the shed data.** Ask how many sheds are up in a
+  neighborhood and get a real answer instead of a general one.
 
-The seven digital objects the final assignment asks for, and where each one lives.
+  ## 2. Features I could add to this website - Scaffold Report Platform
 
-| # | Tab | Object | Page | Script | Status |
-| --- | --- | --- | --- | --- | --- |
-| - | Home | - | `index.html` | - | done |
-| 01 | 2D Spatial Canvas | 2D spatial canvas | `2d-explorations.html` | `js/2d-primitives.js`, `js/2d-interactive.js` | done |
-| 02 | 3D Spatial Canvas | 3D spatial canvas | `3d-explorations.html` | `js/3d-geometries.js`, `js/3d-atmospheric.js` | done |
-| 03 | Temporal Structure | temporal structure | `d3-exploration.html` | `js/d3-exploration.js` | done |
-| 04 | Relational Structures | relational structure | `relational.html` | `js/relational.js` | done |
-| 05 | Geospatial Structures | geospatial structure | `geospatial.html` | `js/geospatial.js` | done |
-| 06 | Engagement Components | engagement component | `engagement.html` | `js/engagement.js` | done |
-| 07 | Agents | agent | `agents.html` | `js/agents.js` | in progress |
 
-## 2. Contextual statements
-
-Each object needs a statement of what I attempted, plus any datasets,
-interactive elements, or references.
-
-| Tab | Statement written | Dataset / reference credited |
-| --- | --- | --- |
-| 2D Spatial Canvas | yes | - |
-| 3D Spatial Canvas | yes | - |
-| Temporal Structure | yes | my own step data |
-| Relational Structures | yes | Baker Institute e-waste article |
-| Geospatial Structures | yes | NYC sidewalk shed permits, Mapping Systems extension |
-| Engagement Components | yes | Firebase Realtime Database |
-| Agents | yes | OpenAI API |
-
----
-
-## 3. Now
-
-- [ ]
-
-## 4. Next
-
-- [ ]
-
-## 5. Later / maybe
-
-- [ ]
-
----
-
-## 6. Known issues
-
-- [ ] The nav bar is copy-pasted into all 8 HTML files, so adding a tab means editing all 8.
-- [ ] The Agents tab is still a plain chat box and does not know anything about this project.
-- [ ] `geospatial.html` wraps the map in two nested `.canvas-frame` divs, so it draws a double border.
-- [ ]
-
----
-
-## 7. Feature template
-
-Copy this block for anything non-trivial.
-
-```
-### Feature:
-**Why:**
-**Where it lives:** (page / script / data)
-**Done when:**
-**Open questions:**
-```
-
----
-
-## 8. Decisions log
-
-| Date | Decision | Why |
-| --- | --- | --- |
-| 2026-08-11 | Merged the two 2D pages into one tab, and the two 3D pages into one | Nine tabs was too many, and the assignment asks for seven objects |
-| 2026-08-11 | Renamed the D3 tab to Temporal Structure | Names the thing being studied, not the library, and matches Relational and Geospatial |
-| 2026-08-11 | Moved scripts to `js/` and data to `data/`, renamed each script after its page | Repo needs to be clearly organized with appropriately named files |
-| | | |
+- **A nearest collection point lookup.** The Geospatial tab is already a working
+  map, so it could take a location and show the closest place to bring something.
+- **Clickable nodes in the relational graph.** Click a category to see what it
+  means and where it came from in the article, so the classification is readable
+  to someone who has not read the source.
+- **An agent for the classification rules.** Ask what to do with a specific item
+  and have it walk the graph instead of making someone read it.
